@@ -1,0 +1,156 @@
+{
+  "persons": [
+    {
+      "id": 1,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJw6qBlNzbAweKz7UlC44hYLoEtdoXGmzN8IJno3mg=s176-c-k-c0x00ffffff-no-rj",
+      "name": "Traversy Media",
+      "description": "Traversy Media features the best online web development and programming tutorials for all of the latest web technologies including Node.js, Angular 2, React.js, PHP, Rails, HTML, CSS and much more",
+      "linkTo": "https://www.youtube.com/user/TechGuyWeb"
+    },
+    {
+      "id": 2,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJyTPRJfE-AcekIPpfXRf3fxAMe6Nkobv-oHCgoV=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Florin Pop",
+      "description": "I love to create Coding Tutorials and to Code Live, so you'll see a lot of those on this channel! Together we're going to learn a lot about web development (HTML, CSS, JavaScript, ReactJS, NodeJS, Animations, Components, APIs and all the cool stuff 😎).",
+      "linkTo": "https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA"
+    },
+    {
+      "id": 3,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJxb_vf1eP6r278YghZIE53tMLh13RCKU6ZSuoTt6w=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Academind",
+      "description": "There's always something to learn! Whether you want to have look at Angular Tutorials or Guides, Vue.js, other Frontend Development Content or Data Science Topics or anything else - you're probably right!",
+      "linkTo": "https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w"
+    },
+    {
+      "id": 4,
+      "lang": "pl",
+      "image": "https://yt3.ggpht.com/a/AATXAJytxIXsEr35xoBJSk8pVVvQmmsFiFD8Um5NhXWo=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Artur Chmaro",
+      "description": "Znajdziesz tutaj tutoriale i materiały video związane z programowaniem (React, JavaScript, Ruby, NodeJS, blockchain, ipfs)",
+      "linkTo": "https://www.youtube.com/c/ArturChmaro"
+    },
+    {
+      "id": 5,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJzfIzn2ZRwWYX4ZbVUGR10ExZvzFXuJCdw0DWrthw=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Ben Awad",
+      "description": "I'm a software developer who makes videos about React, React Native, GraphQL, Typescript, Node.js, PostgreSQL, Python, and all things coding.",
+      "linkTo": "https://www.youtube.com/c/BenAwad97"
+    },
+    {
+      "id": 6,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJzYU-KaaivbiL67OcD5JXeqGyChj3wtD_v8ApmTNQ=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Chris Hawkes",
+      "description": "We're going to learn about programming, web design, responsive web design, Reactjs, Django, Python, web scraping, games, forms applications and more!  Thank you for subscribing! ",
+      "linkTo": "https://www.youtube.com/c/noobtoprofessional"
+    },
+    {
+      "id": 7,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJwFt03RAznOsPwlfo5c1kW1rp-1o3Xgpw9MNreQMQ=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "freeCodeCamp.org",
+      "description": "We're an open source community of busy people who learn to code and build projects for nonprofits.",
+      "linkTo": "https://www.youtube.com/c/Freecodecamp"
+    },
+    {
+      "id": 8,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJwXxITlfxKmPX2h2OkLKwxzR-OoCLCxkKmf1Ugs=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "LearnCode.academy",
+      "description": "100% FREE Web Development tutorials, web site design tutorials and more.",
+      "linkTo": "https://www.youtube.com/c/learncodeacademy"
+    },
+    {
+      "id": 9,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJx465huC47B_RSqncFqzBB5UfFvMX6qZQpAvYYH=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "LearnWebCode",
+      "description": "I make videos about CSS, JavaScript, WordPress and cats. I also teach premium courses (you can find links to them in this channel's header / banner area).",
+      "linkTo": "https://www.youtube.com/channel/UCHRp19HU7Y2LwfI0Ai6WAGQ"
+    },
+    {
+      "id": 10,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJwuTmBKZD9sTE28x5qOHN_vRCPCP528iQeVqauh=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "LevelUpTuts",
+      "description": "840+ free video tutorials created, recorded, edited, published and maintained by Scott Tolinski.",
+      "linkTo": "https://www.youtube.com/c/LevelUpTuts/"
+    },
+    {
+      "id": 11,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJymy6xr9_W7GTkPW1ov2OyxzvNCOE-ff1d7VK36Cg=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Programming with Mosh",
+      "description": "I train professional software engineers that companies love to hire.",
+      "linkTo": "https://www.youtube.com/c/programmingwithmosh"
+    },
+    {
+      "id": 12,
+      "lang": "pl",
+      "image": "https://yt3.ggpht.com/a/AATXAJzAFPRrgeasfMVcQP0QTO_76bnQ0Zf5ySXt5dCRBQ=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Przeprogramowani",
+      "description": "",
+      "linkTo": "https://www.youtube.com/channel/UCb2Y3vMeD6N4WDt5Acw7Arw"
+    },
+    {
+      "id": 13,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJwEFEH0os2PjNYXfjC2tlO-VU5sSsB3rX6DOeFh=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "techsith",
+      "description": "Techsith Tutorials {JavaScript, CSS, HTML, React, Angular, ...}",
+      "linkTo": "https://www.youtube.com/channel/UCbGZKLIHpox2l0whz6_RYyg"
+    },
+    {
+      "id": 14,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJyWnmk6Ql70o3P-x2eHIR01SiiYamhspnAN04zhWA=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "The Net Ninja",
+      "description": "Black-belt your development skills",
+      "linkTo": "https://www.youtube.com/c/TheNetNinja"
+    },
+    {
+      "id": 15,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJxZrkhB1ynPmbqOCde-9PgLuLQ4oVHv81VF0hxM_A=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "thenewboston",
+      "description": "Tons of sweet computer related tutorials and some other awesome videos too!",
+      "linkTo": "https://www.youtube.com/user/thenewboston"
+    },
+    {
+      "id": 16,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJypu8tZ0ko7EnmVlkSOg6qLNIoMrYiyBZ01Hksa=s176-c-k-c0x00ffffff-no-rj",
+      "name": "Weibenfalk",
+      "description": "I'm Thomas Weibenfalk. A developer and designer from Sweden.",
+      "linkTo": "https://www.youtube.com/c/Weibenfalk"
+    },
+    {
+      "id": 17,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJwXti9ORv9Q3pJS7Pf6hYhbwW2joVq5OrK8bFl-nY8=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Wes Bos",
+      "description": "HTML, CSS, JavaScript and WordPress web development tutorials!",
+      "linkTo": "https://www.youtube.com/channel/UCoebwHSTvwalADTJhps0emA"
+    },
+    {
+      "id": 18,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJyd7g6PJDaD3j2Ouariuf_U42P-yZZPQw6-E-B08Q=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "Coding Garden with CJ",
+      "description": "Hello friends! 👋 Welcome to Coding Garden with CJ. Grow your coding skills one day at a time with tutorials, walk throughs and live coding streams about Full Stack Web Development and other related tech.",
+      "linkTo": "https://www.youtube.com/c/CodingGardenwithCJ"
+    },
+    {
+      "id": 19,
+      "lang": "en",
+      "image": "https://yt3.ggpht.com/a/AATXAJzsuBQEVwEvfj3ti2gZQCVWpFc4e38IfMsPgYGCxw=s100-c-k-c0xffffffff-no-rj-mo",
+      "name": "The Coding Train",
+      "description": "All aboard! The Coding Train is on its way with creative coding video tutorials on subjects ranging from the basics of programming languages like JavaScript to algorithmic art, machine learning, simulation, generative poetry, and more. Choo choo!",
+      "linkTo": "https://www.youtube.com/user/shiffman"
+    }
+  ]
+}

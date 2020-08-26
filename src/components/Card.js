@@ -1,19 +1,16 @@
 import React from "react";
 
-function Card() {
+function Card({ person }) {
   return (
     <div className="card">
       <div className="channel-image">
-        <img src="#" alt="" />
+        <img src={person.image} alt="person-image" />
       </div>
       <div className="info">
-        <p className="channel-title">Channel</p>
-        <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-          eaque necessitatibus illo repudiandae tempore praesentium.
-        </span>
+        <p className="channel-title">{person.name}</p>
+        <span className="desc">{person.description}</span>
       </div>
-      <a href="#" id="link">
+      <a href={person.linkTo} id="link" target="_blank">
         Link to
       </a>
     </div>

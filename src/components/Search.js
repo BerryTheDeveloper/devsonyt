@@ -1,12 +1,16 @@
 import React from "react";
 import ytIcon from "../img/YT-icon.png";
 
-function Search() {
+function Search({ setDeveloper }) {
   return (
     <div className="search">
       <form>
+        <input
+          type="text"
+          name="searching"
+          onChange={(e) => setDeveloper(e.target.value)}
+        />
         <p className="placeholder">Do it now...</p>
-        <input type="text" name="searching" placeholder="Do it now..." />
         <img src={ytIcon} alt="YouTube-icon" />
       </form>
     </div>
