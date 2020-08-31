@@ -9,6 +9,7 @@ function Search({ setDeveloper }) {
           type="text"
           name="searching"
           onChange={(e) => setDeveloper(e.target.value)}
+          required
         />
         <p className="placeholder">Do it now...</p>
         <img src={ytIcon} alt="YouTube-icon" />

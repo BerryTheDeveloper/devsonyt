@@ -8,11 +8,14 @@ import { persons } from "./lists/channels.json";
 
 function App() {
   const [developer, setDeveloper] = useState("");
+  const [developerArray, setDeveloperArray] = useState([]);
 
   useEffect(() => {
-    const arr = persons.filter((person) => person.name.includes(developer));
-
-    console.log(arr);
+    setDeveloperArray(
+      persons.filter((person) =>
+        person.name.toLowerCase().includes(developer.toLowerCase())
+      )
+    );
   }, [developer]);
   return (
     <div className="container">
@@ -20,10 +23,12 @@ function App() {
       <Title />
       <Search setDeveloper={setDeveloper} />
       <section className="main">
-        {persons.length === 0 ? (
-          <p>Loading channels...</p>
+        {developerArray.length === 0 ? (
+          <p className="loading">No channels yet...</p>
         ) : (
-          persons.map((person) => <Card key={person.id} person={person} />)
+          developerArray.map((person) => (
+            <Card key={person.id} person={person} />
+          ))
         )}
       </section>
     </div>

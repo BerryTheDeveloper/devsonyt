@@ -79,19 +79,15 @@ form input[type="text"] {
   font-size: 2rem;
 }
 
-form input[type="text"]:active {
-  border: 1px solid #fd0054;
-  padding-left: 1rem;
-  font-size: 2rem;
-}
+form input[type="text"]:valid,
 form input[type="text"]:focus {
+  border: 1px solid #fd0054;
   padding-left: 1rem;
   font-size: 2rem;
-  border: 1px solid #fd0054;
 }
 
 form input:focus ~ .placeholder,
-form input:active ~ .placeholder {
+form input:valid ~ .placeholder {
   opacity: 0;
 }
 
@@ -115,14 +111,11 @@ form img {
 
 .card {
   width: 30rem;
-  height: 16rem;
   background-color: #fd0054;
   border: none;
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(253, 0, 84, 0.16);
   display: flex;
-  text-align: left;
-  position: relative;
   margin: 1rem;
 }
 
@@ -141,6 +134,7 @@ form img {
 .card .info {
   width: 80%;
   height: 100%;
+  position: relative;
 }
 
 .card .info .channel-title {
@@ -153,21 +147,49 @@ form img {
 .card .info .desc {
   color: #fbf9fa;
   font-size: 1rem;
+  display: block;
+  margin-bottom: 4rem;
 }
-.card #link {
+
+.card .info .links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
   position: absolute;
   right: 5%;
-  top: 85%;
+  bottom: 5%;
+}
+
+.card #link {
   color: #fbf9fa;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.3rem;
   font-style: italic;
+  width: fit-content;
 }
 
-/* Make resposivnes for mobile  */
-@media only screen and (max-width: 576px) {
-  .card {
-    height: 18rem;
+.card #link:hover {
+  text-decoration: underline;
+}
+
+.loading {
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: #fbf9fa;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .card .info .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    position: unset;
+  }
+
+  .card .info .links > a {
+    margin: 0.5rem;
   }
 }

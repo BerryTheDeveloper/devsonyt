@@ -6,11 +6,11 @@ function Icons() {
   return (
     <nav>
       <div className="scoial-icons">
-        <a href="https://twitter.com/SimplyManDev" target="blank">
+        <a href="https://twitter.com/SimplyManDev" target="_blank">
           {" "}
           <img src={twitter} id="twitter" alt="twitter" />
         </a>
-        <a href="https://github.com/Simply-man" target="blank">
+        <a href="https://github.com/Simply-man" target="_blank">
           <img src={github} id="github" alt="github" />
         </a>
       </div>
