@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Card({ person }) {
   return (
@@ -12,12 +13,12 @@ function Card({ person }) {
         </p>
         <span className="desc">{person.description}</span>
         <div className="links">
-          <a href="#" id="link" target="_blank">
+          <Link to={`/videos/${person.id}`} id="link">
             Videos
-          </a>
-          <a href="#" id="link" target="_blank">
+          </Link>
+          <Link to={`/playlist/${person.id}`} id="link">
             Playlist
-          </a>
+          </Link>
           <a href={person.linkTo} id="link" target="_blank">
             Link to
           </a>
