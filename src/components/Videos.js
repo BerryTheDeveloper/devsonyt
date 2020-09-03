@@ -7,6 +7,16 @@ function Videos({ person }) {
   const match = useRouteMatch("/videos/:id");
   const exampleArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+  const handleMouseEnter = (e) => {
+    console.log("Mouse enter");
+    e.target.classList.add("hover");
+  };
+
+  const handleMouseLeave = (e) => {
+    console.log("Mouse leave");
+    e.target.classList.remove("hover");
+  };
+
   return (
     <>
       {person.id.toString() === match.params.id ? (
@@ -30,7 +40,11 @@ function Videos({ person }) {
             {exampleArray.map((element) => (
               <div className="video-card">
                 <div className="video-image">
-                  <a href="#">
+                  <a
+                    href="#"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     <img src={playlistImage} alt="video" />
                   </a>
                 </div>

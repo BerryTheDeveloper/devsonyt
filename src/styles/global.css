@@ -203,7 +203,7 @@ form img {
 }
 .videos #back {
   position: absolute;
-  top: 5%;
+  top: 1.5%;
   left: 1%;
 }
 
@@ -264,7 +264,6 @@ form img {
   display: flex;
   flex-direction: column;
   background-color: #fd0054;
-  /* border: 2px solid #fbf9fa; */
   border-radius: 10px 10px 5px 5px;
   margin: 1rem;
 }
@@ -297,6 +296,7 @@ form img {
 .videos .main-content .video-card .video-info .video-title {
   font-size: 1.2rem;
   margin: 0.2rem auto;
+  font-weight: 700;
 }
 
 .videos .main-content .video-card .video-info .video-desc {
