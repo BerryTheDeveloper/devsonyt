@@ -5,26 +5,30 @@ import playlistImage from "../img/playlistImage.jpg";
 
 function Videos({ person }) {
   const match = useRouteMatch("/videos/:id");
+  const matched = person.id === match.params.id;
   const exampleArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const [playlistID, setPlaylistID] = useState("");
   useEffect(() => {
-    const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${person.id}key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
+    if (!matched) return;
+    const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${person.id}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
+    // const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=UC29ju8bIPH5as8OGnQzwJyA&key=AIzaSyBAZsPfEbYfMv2VaKgXy70LvGQ0cAFkirI`;
     fetch(link)
       .then((respone) => respone.json())
       .then((data) =>
         setPlaylistID(data.items[0].contentDetails.relatedPlaylists.uploads)
       )
       .catch((err) => console.log(err));
-  }, []);
+  }, [matched, person.id]);
 
   const [videosData, setVideosData] = useState([]);
   useEffect(() => {
     if (playlistID === "") return;
+
     const link = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails&maxResults=20&playlistId=${playlistID}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
-    const getUploadedVideos = fetch(secondLink)
+    const getUploadedVideos = fetch(link)
       .then((response) => response.json())
-      .then((data) => setVideosData(data))
+      .then((data) => setVideosData(data.items))
       .catch((err) => console.log(err));
   }, [playlistID]);
 
@@ -40,7 +44,7 @@ function Videos({ person }) {
 
   return (
     <>
-      {person.id.toString() === match.params.id ? (
+      {matched ? (
         <div className="videos">
           <Link to="/" id="back">
             <img src={arrowBack} id="arrow-back" alt="arrow-back" />
@@ -61,11 +65,7 @@ function Videos({ person }) {
             {exampleArray.map((element) => (
               <div className="video-card">
                 <div className="video-image">
-                  <a
-                    href="#"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
+                  <a href="#">
                     <img src={playlistImage} alt="video" />
                   </a>
                 </div>
