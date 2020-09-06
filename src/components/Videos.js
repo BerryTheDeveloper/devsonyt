@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import arrowBack from "../img/arrowBack.png";
 import playlistImage from "../img/playlistImage.jpg";
@@ -6,6 +6,27 @@ import playlistImage from "../img/playlistImage.jpg";
 function Videos({ person }) {
   const match = useRouteMatch("/videos/:id");
   const exampleArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const [playlistID, setPlaylistID] = useState("");
+  useEffect(() => {
+    const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${person.id}key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
+    fetch(link)
+      .then((respone) => respone.json())
+      .then((data) =>
+        setPlaylistID(data.items[0].contentDetails.relatedPlaylists.uploads)
+      )
+      .catch((err) => console.log(err));
+  }, []);
+
+  const [videosData, setVideosData] = useState([]);
+  useEffect(() => {
+    if (playlistID === "") return;
+    const link = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails&maxResults=20&playlistId=${playlistID}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
+    const getUploadedVideos = fetch(secondLink)
+      .then((response) => response.json())
+      .then((data) => setVideosData(data))
+      .catch((err) => console.log(err));
+  }, [playlistID]);
 
   const handleMouseEnter = (e) => {
     console.log("Mouse enter");

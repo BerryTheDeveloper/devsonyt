@@ -8,7 +8,8 @@ function Playlist({ person }) {
 
   const matched = person.id === match.params.id;
   const [playlistChannel, setPlaylistChannel] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     if (matched) {
       const link = `https://www.googleapis.com/youtube/v3/playlists?part=snippet%2C%20contentDetails&channelId=${person.id}&maxResults=20&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
@@ -39,7 +40,7 @@ function Playlist({ person }) {
             </div>
           </div>
           <div className="main-content">
-            {playlistChannel !== undefined && playlistChannel.length !== 0 ? (
+            {playlistChannel.length !== 0 ? (
               playlistChannel.map((eachPlaylist) => (
                 <div className="video-card" key={eachPlaylist.id}>
                   <div className="video-image">
