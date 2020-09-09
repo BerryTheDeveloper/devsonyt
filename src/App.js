@@ -44,14 +44,10 @@ function App() {
           </section>
         </Route>
         <Route exact={true} path="/videos/:id">
-          {developerArray.map((person) => (
-            <Videos key={person.id} person={person} />
-          ))}
+          <Videos developerArray={developerArray} />
         </Route>
         <Route exact={true} path="/playlist/:id">
-          {developerArray.map((person) => (
-            <Playlist key={person.id} person={person} />
-          ))}
+          <Playlist developerArray={developerArray} />
         </Route>
       </Switch>
     </div>

@@ -13,13 +13,13 @@ function Card({ person }) {
         </p>
         <span className="desc">{person.description}</span>
         <div className="links">
-          <Link to={`/videos/${person.id}`} id="link">
+          <Link to={`/videos/${person.id}`} className="link">
             Videos
           </Link>
-          <Link to={`/playlist/${person.id}`} id="link">
+          <Link to={`/playlist/${person.id}`} className="link">
             Playlist
           </Link>
-          <a href={person.linkTo} id="link" target="_blank">
+          <a href={person.linkTo} className="link" target="_blank">
             Link to
           </a>
         </div>

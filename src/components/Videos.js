@@ -2,24 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import arrowBack from "../img/arrowBack.png";
 import playlistImage from "../img/playlistImage.jpg";
+import TopContent from "./TopContent";
 
-function Videos({ person }) {
+function Videos({ developerArray }) {
   const match = useRouteMatch("/videos/:id");
-  const matched = person.id === match.params.id;
-  const exampleArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const [person, setPerson] = useState([]);
+  useEffect(() => {
+    if (developerArray.length === 0) return;
+    setPerson(developerArray.filter((dev) => dev.id === match.params.id));
+  }, [developerArray, match.params.id]);
 
   const [playlistID, setPlaylistID] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (!matched) return;
-    const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${person.id}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
-    // const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=UC29ju8bIPH5as8OGnQzwJyA&key=AIzaSyBAZsPfEbYfMv2VaKgXy70LvGQ0cAFkirI`;
-    fetch(link)
-      .then((respone) => respone.json())
-      .then((data) =>
-        setPlaylistID(data.items[0].contentDetails.relatedPlaylists.uploads)
-      )
-      .catch((err) => console.log(err));
-  }, [matched, person.id]);
+    if (person.length === 0) return;
+    if (isLoading) {
+      const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${person[0].id}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
+      // const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=UC29ju8bIPH5as8OGnQzwJyA&key=AIzaSyBAZsPfEbYfMv2VaKgXy70LvGQ0cAFkirI`;
+      fetch(link)
+        .then((respone) => respone.json())
+        .then((data) => {
+          setPlaylistID(data.items[0].contentDetails.relatedPlaylists.uploads);
+          setIsLoading(false);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [isLoading, person]);
 
   const [videosData, setVideosData] = useState([]);
   useEffect(() => {
@@ -32,6 +41,8 @@ function Videos({ person }) {
       .catch((err) => console.log(err));
   }, [playlistID]);
 
+  // console.log("", videosData)
+  console.log("Videos", videosData);
   const handleMouseEnter = (e) => {
     console.log("Mouse enter");
     e.target.classList.add("hover");
@@ -43,44 +54,39 @@ function Videos({ person }) {
   };
 
   return (
-    <>
-      {matched ? (
-        <div className="videos">
-          <Link to="/" id="back">
-            <img src={arrowBack} id="arrow-back" alt="arrow-back" />
-          </Link>
-          <div className="top-content">
-            <p className="author">{person.name}</p>
-            <div className="links">
-              <Link to={`/videos/${person.id}`} className="active" id="link">
-                Videos
-              </Link>
-              <span>/</span>
-              <Link to={`/playlist/${person.id}`} id="link">
-                Playlist
-              </Link>
-            </div>
-          </div>
-          <div className="main-content">
-            {exampleArray.map((element) => (
-              <div className="video-card">
-                <div className="video-image">
-                  <a href="#">
-                    <img src={playlistImage} alt="video" />
-                  </a>
-                </div>
-                <div className="video-info">
-                  <p className="video-title">New title</p>
-                  <p className="video-desc">info about video</p>
-                </div>
+    <div className="videos">
+      <Link to="/" id="back">
+        <img src={arrowBack} id="arrow-back" alt="arrow-back" />
+      </Link>
+      {person.length !== 0 ? <TopContent person={person} /> : ""}
+      <div className="main-content">
+        {!isLoading && videosData.length !== 0 ? (
+          videosData.map((video) => (
+            <div className="video-card" key={video.id}>
+              <div className="video-image">
+                <a href="#">
+                  <img src={playlistImage} alt="video" />
+                </a>
               </div>
-            ))}
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
-    </>
+              <div className="video-info">
+                <p className="video-title">{video.snippet.title}</p>
+                <p className="video-desc">{video.snippet.publishedAt}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p
+            style={{
+              color: "#fbf9fa",
+              fontSize: "2rem",
+              textAlign: "center",
+            }}
+          >
+            Loading items...
+          </p>
+        )}
+      </div>
+    </div>
   );
 }
 
