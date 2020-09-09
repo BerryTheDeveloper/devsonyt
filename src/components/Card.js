@@ -19,7 +19,12 @@ function Card({ person }) {
           <Link to={`/playlist/${person.id}`} className="link">
             Playlist
           </Link>
-          <a href={person.linkTo} className="link" target="_blank">
+          <a
+            href={person.linkTo}
+            className="link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Link to
           </a>
         </div>

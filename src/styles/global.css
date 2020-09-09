@@ -323,7 +323,8 @@ form img {
   z-index: 1;
 }
 
-.videos .main-content .video-card .video-image img {
+.videos .main-content .video-card .video-image img,
+.videos .main-content .video-card .video-image iframe {
   width: 100%;
   height: 100%;
   display: block;

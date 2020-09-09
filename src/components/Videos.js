@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import arrowBack from "../img/arrowBack.png";
-import playlistImage from "../img/playlistImage.jpg";
 import TopContent from "./TopContent";
 
 function Videos({ developerArray }) {
@@ -26,7 +25,11 @@ function Videos({ developerArray }) {
           setPlaylistID(data.items[0].contentDetails.relatedPlaylists.uploads);
           setIsLoading(false);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          setPlaylistID([]);
+          setIsLoading(true);
+          console.log(err);
+        });
     }
   }, [isLoading, person]);
 
@@ -35,23 +38,14 @@ function Videos({ developerArray }) {
     if (playlistID === "") return;
 
     const link = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails&maxResults=20&playlistId=${playlistID}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
-    const getUploadedVideos = fetch(link)
+    fetch(link)
       .then((response) => response.json())
       .then((data) => setVideosData(data.items))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setVideosData([]);
+        console.log(err);
+      });
   }, [playlistID]);
-
-  // console.log("", videosData)
-  console.log("Videos", videosData);
-  const handleMouseEnter = (e) => {
-    console.log("Mouse enter");
-    e.target.classList.add("hover");
-  };
-
-  const handleMouseLeave = (e) => {
-    console.log("Mouse leave");
-    e.target.classList.remove("hover");
-  };
 
   return (
     <div className="videos">
@@ -64,9 +58,13 @@ function Videos({ developerArray }) {
           videosData.map((video) => (
             <div className="video-card" key={video.id}>
               <div className="video-image">
-                <a href="#">
-                  <img src={playlistImage} alt="video" />
-                </a>
+                <iframe
+                  title={video.snippet.title}
+                  src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
               <div className="video-info">
                 <p className="video-title">{video.snippet.title}</p>

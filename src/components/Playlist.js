@@ -62,6 +62,7 @@ function Playlist({ developerArray }) {
                   <a
                     href={`https://www.youtube.com/playlist?list=${playlist.id}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <FontAwesomeIcon icon={faPlay} color="white" />
                     SHOW FULL PLAYLIST
@@ -78,6 +79,7 @@ function Playlist({ developerArray }) {
                 <a
                   href={`https://www.youtube.com/playlist?list=${playlist.id}`}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="video-desc"
                 >
                   Show Full Playlist
