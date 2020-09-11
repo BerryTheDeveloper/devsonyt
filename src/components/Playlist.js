@@ -26,7 +26,10 @@ function Playlist({ developerArray }) {
           setPlaylistChannel(data.items);
           setIsLoading(false);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          setPlaylistChannel([]);
+          console.log(err);
+        });
     }
   }, [person, isLoading]);
 

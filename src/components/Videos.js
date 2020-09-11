@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import arrowBack from "../img/arrowBack.png";
 import TopContent from "./TopContent";
+import convertVideoDate from "./convertVideoDate";
+import ViewCount from "./ViewCount";
 
 function Videos({ developerArray }) {
   const match = useRouteMatch("/videos/:id");
 
   const [person, setPerson] = useState([]);
+  const [playlistID, setPlaylistID] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [videosData, setVideosData] = useState([]);
+
   useEffect(() => {
     if (developerArray.length === 0) return;
     setPerson(developerArray.filter((dev) => dev.id === match.params.id));
   }, [developerArray, match.params.id]);
 
-  const [playlistID, setPlaylistID] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (person.length === 0) return;
     if (isLoading) {
       const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${person[0].id}&key=${process.env.REACT_APP_YT_DATA_API_KEY}`;
-      // const link = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=UC29ju8bIPH5as8OGnQzwJyA&key=AIzaSyBAZsPfEbYfMv2VaKgXy70LvGQ0cAFkirI`;
       fetch(link)
         .then((respone) => respone.json())
         .then((data) => {
@@ -33,7 +36,6 @@ function Videos({ developerArray }) {
     }
   }, [isLoading, person]);
 
-  const [videosData, setVideosData] = useState([]);
   useEffect(() => {
     if (playlistID === "") return;
 
@@ -68,7 +70,13 @@ function Videos({ developerArray }) {
               </div>
               <div className="video-info">
                 <p className="video-title">{video.snippet.title}</p>
-                <p className="video-desc">{video.snippet.publishedAt}</p>
+                <div className="video-statistics">
+                  <ViewCount videoId={video.snippet.resourceId.videoId} />
+                  views /
+                  <p className="video-desc">
+                    {convertVideoDate(video.snippet.publishedAt)}
+                  </p>
+                </div>
               </div>
             </div>
           ))
