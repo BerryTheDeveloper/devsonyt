@@ -7,18 +7,40 @@ import Card from "./components/Card";
 import Playlist from "./components/Playlist";
 import Videos from "./components/Videos";
 import "./styles/global.css";
-import { persons } from "./lists/channels.json";
+import db from "./firebase/initializeFirebase";
 
 function App() {
   const [developer, setDeveloper] = useState("");
-  const [developerArray, setDeveloperArray] = useState([]);
+  const [devs, setDevs] = useState([]);
+  const [developers, setDevelopers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setDeveloperArray(
-      persons.filter((person) =>
-        person.name.toLowerCase().includes(developer.toLowerCase())
+    if (!isLoading) return;
+    const devs = [];
+    db.collection("persons")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          devs.push(doc.data());
+        });
+      })
+      .then(() => {
+        setDevelopers(devs);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (isLoading) return;
+    if (devs.length === 0) setDevs(developers);
+
+    setDevs(
+      developers.filter((dev) =>
+        dev.name.toLowerCase().includes(developer.toLowerCase())
       )
     );
-  }, [developer]);
+  }, [developer, isLoading, devs.length]);
 
   const match = useRouteMatch("/");
   useEffect(() => {
@@ -34,20 +56,18 @@ function App() {
           <Title />
           <Search setDeveloper={setDeveloper} />
           <section className="main">
-            {developerArray.length === 0 ? (
+            {isLoading && developers.length === 0 ? (
               <p className="loading">No channels yet...</p>
             ) : (
-              developerArray.map((person) => (
-                <Card key={person.id} person={person} />
-              ))
+              devs.map((person) => <Card key={person.id} person={person} />)
             )}
           </section>
         </Route>
         <Route exact={true} path="/videos/:id">
-          <Videos developerArray={developerArray} />
+          <Videos developers={developers} />
         </Route>
         <Route exact={true} path="/playlist/:id">
-          <Playlist developerArray={developerArray} />
+          <Playlist developers={developers} />
         </Route>
       </Switch>
     </div>

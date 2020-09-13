@@ -5,7 +5,7 @@ import TopContent from "./TopContent";
 import convertVideoDate from "./convertVideoDate";
 import ViewCount from "./ViewCount";
 
-function Videos({ developerArray }) {
+function Videos({ developers }) {
   const match = useRouteMatch("/videos/:id");
 
   const [person, setPerson] = useState([]);
@@ -14,9 +14,9 @@ function Videos({ developerArray }) {
   const [videosData, setVideosData] = useState([]);
 
   useEffect(() => {
-    if (developerArray.length === 0) return;
-    setPerson(developerArray.filter((dev) => dev.id === match.params.id));
-  }, [developerArray, match.params.id]);
+    if (developers.length === 0) return;
+    setPerson(developers.filter((dev) => dev.id === match.params.id));
+  }, [developers, match.params.id]);
 
   useEffect(() => {
     if (person.length === 0) return;

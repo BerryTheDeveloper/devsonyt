@@ -5,14 +5,14 @@ import TopContent from "./TopContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 
-function Playlist({ developerArray }) {
+function Playlist({ developers }) {
   const match = useRouteMatch("/playlist/:id");
 
   const [person, setPerson] = useState([]);
   useEffect(() => {
-    if (developerArray.length === 0) return;
-    setPerson(developerArray.filter((dev) => dev.id === match.params.id));
-  }, [developerArray, match.params.id]);
+    if (developers.length === 0) return;
+    setPerson(developers.filter((dev) => dev.id === match.params.id));
+  }, [developers, match.params.id]);
 
   const [playlistChannel, setPlaylistChannel] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
