@@ -5,6 +5,11 @@ import github from "../img/github.svg";
 function Icons() {
   return (
     <nav>
+      <p>
+        <a href="http://www.devsonyt.guru">
+          DEVSONYT.<span>GURU</span>
+        </a>
+      </p>
       <div className="scoial-icons">
         <a
           href="https://twitter.com/SimplyManDev"
