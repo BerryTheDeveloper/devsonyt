@@ -196,20 +196,6 @@ form img {
   text-align: center;
 }
 
-@media only screen and (max-width: 500px) {
-  .card .info .links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    position: unset;
-  }
-
-  .card .info .links > a {
-    margin: 0.5rem;
-  }
-}
-
 /* Videos component */
 
 .videos {
@@ -388,4 +374,32 @@ form img {
 .videos .main-content .video-card .video-info a:hover {
   text-decoration: underline;
   color: #2b2024;
+}
+
+@media only screen and (max-width: 500px) {
+  .card .info .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    position: unset;
+  }
+
+  .card .info .links > a {
+    margin: 0.5rem;
+  }
+
+  .videos .top-content .author {
+    font-size: 3rem;
+  }
+
+  .videos .links .link,
+  .videos .links span {
+    font-size: 1.7rem;
+  }
+
+  .videos #back > #arrow-back {
+    width: 32px;
+    height: 32px;
+  }
 }
