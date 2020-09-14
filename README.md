@@ -1,9 +1,9 @@
-<h1 align="center">Devs<span color="#fd0054">YT🔥</span></h1>
-<blockquote align='center'>Browse best Web Developers on YouTube</blockquote>
+<h1 align="center">DevsYT🔥</h1>
+<blockquote align='center'><i>Browse best Web Developers on YouTube</i></blockquote>
 
 <br>
 <p align="center">
 <a href="https://devsonyt.guru/" target="_blank"> <img src="screenshot/devsonyt.png" width=600/></a>
-<br>
-🔥<b><a href='https://devsonyt.guru/'>devhints.io</a></b>🔥
 </p>
+<br>
+<p align="center">🔥<b><a href='https://devsonyt.guru/'>devhints.io</a></b>🔥</p>
