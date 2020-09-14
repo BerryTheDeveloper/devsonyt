@@ -40,7 +40,7 @@ function App() {
         dev.name.toLowerCase().includes(developer.toLowerCase())
       )
     );
-  }, [developer, isLoading, devs.length]);
+  }, [developer, isLoading, devs.length, developers]);
 
   const match = useRouteMatch("/");
   useEffect(() => {
