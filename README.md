@@ -5,5 +5,3 @@
 <p align="center">
 <a href="https://devsonyt.guru/" target="_blank"> <img src="screenshot/devsonyt.png" width=600/></a>
 </p>
-<br>
-<p align="center">🔥<b><a href='https://devsonyt.guru/'>devsonyt.guru</a></b>🔥</p>
